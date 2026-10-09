@@ -65,7 +65,7 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
 
 # Set your Gemini API Key in .env
-echo "GOOGLE_API_KEY=your_key_here" > .env
+echo "GEMINI_API_KEY=your_key_here" > .env
 
 # Provision your first API Key for testing
 python provision_client.py "Master Client"
@@ -77,7 +77,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 ### 3. Frontend Setup
 ```bash
 # Open a new terminal
-cd frontend
+cd safira-frontend
 npm install
 npm run dev
 ```
