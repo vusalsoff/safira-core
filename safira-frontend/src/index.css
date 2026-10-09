@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* LIGHT MODE (Default if no class) */
+    --background: 240 20% 98%;
+    --foreground: 224 71% 4%;
+    
+    --bg-dark: 250 250 250;
+    --bg-darker: 255 255 255;
+    --surface: rgba(0, 0, 0, 0.03);
+    --surface-border: rgba(0, 0, 0, 0.08);
+    
+    /* Inverted gray scales for text-white and text-gray-* in light mode */
+    --color-white: 15 23 42;
+    --color-gray-100: 30 41 59;
+    --color-gray-200: 51 65 85;
+    --color-gray-300: 71 85 105;
+    --color-gray-400: 100 116 139;
+    --color-gray-500: 148 163 184;
+    --color-gray-600: 203 213 225;
+  }
+
+  .dark {
+    /* DARK MODE */
+    --background: 240 10% 2%;
+    --foreground: 213 31% 91%;
+    
+    --bg-dark: 2 2 5;
+    --bg-darker: 0 0 0;
+    --surface: rgba(255, 255, 255, 0.03);
+    --surface-border: rgba(255, 255, 255, 0.08);
+    
+    /* Normal gray scales */
+    --color-white: 255 255 255;
+    --color-gray-100: 243 244 246;
+    --color-gray-200: 229 231 235;
+    --color-gray-300: 209 213 219;
+    --color-gray-400: 156 163 175;
+    --color-gray-500: 107 114 128;
+    --color-gray-600: 75 85 99;
+  }
+}
+
+body {
+  @apply bg-dark text-gray-200 overflow-x-hidden selection:bg-primary/30 selection:text-white transition-colors duration-500;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  @apply bg-surface backdrop-blur-xl border border-surface-border rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-300;
+}
+
+.glass-panel:hover {
+  @apply border-primary/30 shadow-[0_8px_32px_0_rgba(14,165,233,0.15)];
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2); 
+}
+
